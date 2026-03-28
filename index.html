@@ -7,132 +7,143 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial;
+    background: black;
     color: white;
     text-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.container {
-    padding: 40px 20px;
+/* 🌌 Stars */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/9Q9Z1Zm.png');
+    animation: move 60s linear infinite;
 }
 
-h1 {
-    font-size: 38px;
-    animation: fadeIn 2s ease-in-out;
+@keyframes move {
+    from {background-position: 0 0;}
+    to {background-position: 10000px 5000px;}
 }
 
-p {
-    font-size: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    line-height: 1.6;
+/* Screens */
+.screen {
+    display: none;
+    padding: 40px;
 }
 
+.active {
+    display: block;
+}
+
+/* Name animation */
+.name {
+    font-size: 40px;
+    color: #ff4b7d;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow: 0 0 10px #ff4b7d;}
+    to {text-shadow: 0 0 25px #ff4b7d;}
+}
+
+/* Buttons */
 button {
-    padding: 15px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 25px;
+    padding: 12px 25px;
     margin: 10px;
+    border-radius: 25px;
+    border: none;
     cursor: pointer;
 }
 
-.yes {
-    background: white;
-    color: #ff4b7d;
+.next {
+    background: #ff4b7d;
+    color: white;
 }
 
 .no {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
     position: absolute;
 }
 
-.hidden {
-    display: none;
-}
-
+/* Image */
 img {
-    width: 200px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    width: 220px;
+    border-radius: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 MUSIC -->
-<audio autoplay loop>
-    <source src="https://open.spotify.com/track/13OQG53mizOWFJqsrFEBvw">
-</audio>
+<div class="stars"></div>
 
-<div class="container">
-    <h1>I'm Sorry Babyyy ❤️</h1>
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
+    <h1 class="name">Babyyy ❤️</h1>
+    <p>I made something for you… please see 🥺</p>
+    <button class="next" onclick="next(1)">Open</button>
+</div>
 
-    <p>
-        Babyyy… I know I keep hurting you again and again…  
-        Every time you wait for me at night… I fall asleep.  
-        And when you want me to understand you… I fail there too.  
-    </p>
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+    <h1>I'm Sorry 😔</h1>
+    <p>I know I hurt you again and again… and I hate it…</p>
+    <button class="next" onclick="next(2)">Next</button>
+</div>
 
-    <p>
-        I hate that I make you feel ignored, babyyy…  
-        because you deserve so much better than this.  
-    </p>
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+    <h1>Our Memories ❤️</h1>
+    <img id="slide" src="photo1.jpg">
+    <p>Every moment with you is special babyyy…</p>
+    <button class="next" onclick="next(3)">Next</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
+    <h1>Truth 💔</h1>
+    <p>I don’t ignore you… I just fail sometimes… but I care the most…</p>
+    <button class="next" onclick="next(4)">Next</button>
+</div>
+
+<!-- SCREEN 5 -->
+<div class="screen" id="s5">
+    <h1>Babyyy… ❤️</h1>
+    <p>You are my world… my everything 💕</p>
+
+    <button class="next" onclick="finalMsg()">Forgive Me 💖</button>
+    <button class="no" id="noBtn">No 😢</button>
+</div>
+
 <script>
-let images = ["photo1.jpg","photo2.jpg","photo3.jpg" , "photo4.jpg" , "photo5.jpg];
+// Screen change
+function next(n){
+    document.getElementById("s"+n).classList.remove("active");
+    document.getElementById("s"+(n+1)).classList.add("active");
+}
 
+// Final message
+function finalMsg(){
+    alert("I LOVE YOU THE MOST BABYYY ❤️");
+}
+
+// No button run
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", ()=>{
+    noBtn.style.top = Math.random()*window.innerHeight+"px";
+    noBtn.style.left = Math.random()*window.innerWidth+"px";
+});
+
+// Slideshow
+let images = ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg"];
 let i = 0;
 setInterval(()=>{
     document.getElementById("slide").src = images[i];
     i = (i+1) % images.length;
-}, 2000);
-</script>
-    
-    <br><br>
-
-    <button class="yes" onclick="showLove()">Forgive Me Babyyy 💖</button>
-    <button class="no" id="noBtn">No 😢</button>
-
-    <div id="loveMessage" class="hidden">
-        <p>
-            Babyyy… even if I make mistakes again and again…  
-            my love for you will never change. ❤️  
-        </p>
-
-        <p>
-            You are my most precious person, babyyy…  
-            the best thing that ever happened to me.  
-        </p>
-
-        <p>
-            I promise I’ll try… not just say it…  
-            but actually be better for you, babyyy 💕
-        </p>
-    </div>
-</div>
-
-<script>
-function showLove() {
-    document.getElementById("loveMessage").style.display = "block";
-}
-
-// 😏 NO button bhaagega
-const noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", () => {
-    noBtn.style.top = Math.random() * window.innerHeight + "px";
-    noBtn.style.left = Math.random() * window.innerWidth + "px";
-});
+},2000);
 </script>
 
 </body>
