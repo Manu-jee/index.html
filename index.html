@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You Babyyy ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 38px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.yes {
+    background: white;
+    color: #ff4b7d;
+}
+
+.no {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+    <source src="https://open.spotify.com/track/13OQG53mizOWFJqsrFEBvw">
+</audio>
+
+<div class="container">
+    <h1>I'm Sorry Babyyy ❤️</h1>
+
+    <p>
+        Babyyy… I know I keep hurting you again and again…  
+        Every time you wait for me at night… I fall asleep.  
+        And when you want me to understand you… I fail there too.  
+    </p>
+
+    <p>
+        I hate that I make you feel ignored, babyyy…  
+        because you deserve so much better than this.  
+    </p>
+
+    <!-- 📸 ADD YOUR PHOTO HERE -->
+    <img src="https://photos.app.goo.gl/8usa253Jy3Zo8WKE8
+https://photos.app.goo.gl/1T4krgb1TzGGAnKJ8
+https://photos.app.goo.gl/Dg7inUZbr19qhz618
+https://photos.app.goo.gl/XrX57qFF3CpuepQy8
+https://photos.app.goo.gl/i87Eah2jDZdFsRhN6
+https://photos.app.goo.gl/cQXEtLMZfPuMMGWf9">
+
+    <br><br>
+
+    <button class="yes" onclick="showLove()">Forgive Me Babyyy 💖</button>
+    <button class="no" id="noBtn">No 😢</button>
+
+    <div id="loveMessage" class="hidden">
+        <p>
+            Babyyy… even if I make mistakes again and again…  
+            my love for you will never change. ❤️  
+        </p>
+
+        <p>
+            You are my most precious person, babyyy…  
+            the best thing that ever happened to me.  
+        </p>
+
+        <p>
+            I promise I’ll try… not just say it…  
+            but actually be better for you, babyyy 💕
+        </p>
+    </div>
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("loveMessage").style.display = "block";
+}
+
+// 😏 NO button bhaagega
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.top = Math.random() * window.innerHeight + "px";
+    noBtn.style.left = Math.random() * window.innerWidth + "px";
+});
+</script>
+
+</body>
+</html>
