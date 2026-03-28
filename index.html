@@ -88,15 +88,16 @@ img {
         I hate that I make you feel ignored, babyyy…  
         because you deserve so much better than this.  
     </p>
+<script>
+let images = ["photo1.jpg","photo2.jpg","photo3.jpg" , "photo4.jpg" , "photo5.jpg];
 
-    <!-- 📸 ADD YOUR PHOTO HERE -->
-    <img src="https://photos.app.goo.gl/8usa253Jy3Zo8WKE8
-https://photos.app.goo.gl/1T4krgb1TzGGAnKJ8
-https://photos.app.goo.gl/Dg7inUZbr19qhz618
-https://photos.app.goo.gl/XrX57qFF3CpuepQy8
-https://photos.app.goo.gl/i87Eah2jDZdFsRhN6
-https://photos.app.goo.gl/cQXEtLMZfPuMMGWf9">
-
+let i = 0;
+setInterval(()=>{
+    document.getElementById("slide").src = images[i];
+    i = (i+1) % images.length;
+}, 2000);
+</script>
+    
     <br><br>
 
     <button class="yes" onclick="showLove()">Forgive Me Babyyy 💖</button>
